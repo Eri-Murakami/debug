@@ -8,8 +8,11 @@
     　</head>
      <body>
          <script type="text/javascript">
-             function toOneDimension( previousValue, currentValue ){
-                 return previousValue.concat(currentValue);
+             function toOneDimension(previousValue,currentValue ){
+                 
+                 console.log(currentValue,previousValue);
+                 
+                 return currentValue.concat(previousValue);
              }
              
              var sampleArrayA=[
@@ -19,11 +22,15 @@
              ];
              
              var sampleArrayB = sampleArrayA.reduce(toOneDimension);
-             for(var counterVar = 0; counterVar < sampleArrayB.length;counterVar++){
+             
+             for(var counterVar = 0;counterVar<sampleArrayB.length;counterVar++){
                  document.write('sampleArrayB['+counterVar+']:');
                  document.write(sampleArrayB[counterVar]);
                  document.write('<br/>');
              }
+             
+             console.log(sampleArrayA,sampleArrayB);
+             
          </script>
      </body>
     </html>

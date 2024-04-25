@@ -4,24 +4,35 @@
       <title>01_デバッグ</title>
       <meta charset="UTF-8">
       <title></title>
-    　<link rel="stylesheet" type="text/css" href=".css">
     　</head>
      <body>
          <script type="text/javascript">
+             
+             //関数定義
              function toOneDimension(previousValue,currentValue ){
+                 //console.log(previousValue);　//　第一引数
+                 //console.log(currentValue);　//　第二引数
                  
-                 console.log(currentValue,previousValue);
-                 
-                 return currentValue.concat(previousValue);
+                 //呼び出し
+                 //return previousValue.concat(currentValue); 元のプログラミング
+                 return currentValue.concat(previousValue); //　第二引数（concat（結合））第一引数
              }
              
              var sampleArrayA=[
                  ['A1','A2','A3'],
                  ['B1','B2','B3'],
-                 ['C1','C2','C3']
+                 ['C1','C2','C3'],
+                 //['D1','D2','D3'],
              ];
              
-             var sampleArrayB = sampleArrayA.reduce(toOneDimension);
+             var sampleArrayB=sampleArrayA.reduce(toOneDimension);　//　reduce　…　配列を左から見ていって最終的に1つの値を得る。
+             
+            // console.log(toOneDimension); //ƒ toOneDimension(previousValue,currentValue ){
+                                                   //return currentValue.concat(previousValue);
+                                              //}    
+             
+             //console.log(sampleArrayA); // ['A1','A2','A3'],['B1','B2','B3'],['C1','C2','C3']
+             //console.log(sampleArrayB); //['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A1', 'A2', 'A3']
              
              for(var counterVar = 0;counterVar<sampleArrayB.length;counterVar++){
                  document.write('sampleArrayB['+counterVar+']:');
@@ -29,7 +40,7 @@
                  document.write('<br/>');
              }
              
-             console.log(sampleArrayA,sampleArrayB);
+             //console.log(counterVar); // 9 (ver sampleArraAに//['D1','D2','D3']を追加すると12になる)
              
          </script>
      </body>

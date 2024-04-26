@@ -9,15 +9,26 @@
              
              //関数定義
              function toOneDimension(previousValue,currentValue){
-                 //console.log(previousValue);　//　第一引数
-                 //console.log(currentValue);　//　第二引数
+                 //previousValue　=　前置き　、currentValue　＝　現在地・時価
                  
+                 //console.log(previousValue);　//　第一引数　ﾌﾟﾚﾋﾞｱｽﾊﾞﾘｭｰ
+                　//console.log(currentValue);　//第二引数　ｶﾚﾝﾄﾊﾞﾘｭｰ
+                              
                  //呼び出し
                  //return previousValue.concat(currentValue); 元のプログラミング
-                 //return currentValue.concat(currentValue); C1,C2,C3を2回繰り返す
-                 //return previousValue.concat(previousValue); A1,A2,A3を4回繰り返す
-                 return currentValue.concat(previousValue); //　第二引数（concat（結合））第一引数
+                 //return currentValue.concat(currentValue); →　C1,C2,C3を2回繰り返す
+                 //return previousValue.concat(previousValue); →　A1,A2,A3を4回繰り返す
+                 //return currentValue;　//→　C1,C2,C3まで表示する
+                 //return previousValue;　→　A1,A2,A3まで表示する
+                 //console.log(currentValue.concat(previousValue));
+                 
+                 return currentValue.concat(previousValue); //　第二引数（concat　ｺﾝｶｯﾄ（結合））第一引数して戻す
              }
+//             function test() {
+//                 return 'test';
+//             }
+//             let t = test();
+//             console.log(t);// test
              
              var sampleArrayA=[
                  ['A1','A2','A3'],
@@ -26,14 +37,22 @@
                  //['D1','D2','D3'],
              ];
              
-             var sampleArrayB=sampleArrayA.reduce(toOneDimension);　//　reduce　…　配列を左から見ていって最終的に1つの値を得る。
+             var sampleArrayB=sampleArrayA.reduce(toOneDimension);
+             //　reduce　…　配列を左から見ていって最終的に1つの値を得る。例）１，２，３　の場合：１、（１＋２＝）３、（３＋３＝）６
+             //sampleArrayAを関数「toOneDimension」で配列を左から見ていって最終的に1つの値を得る。
+            　//1回目：previousValue＝['A1','A2','A3']、currentValue=['B1','B2','B3'],
+            　//2回目：previousValue＝['A1','A2','A3']['B1','B2','B3']、currentValue=['C1','C2','C3']
+              //3回目：previousValue＝['A1','A2','A3']['B1','B2','B3']['C1','C2','C3']、currentValue=['D1','D2','D3']　
+            //前の結果　＋　次の値　sampleArrayAの［　］の分だけ繰り返される
              
+           
+     
             // console.log(toOneDimension); //ƒ toOneDimension(previousValue,currentValue ){
                                                    //return currentValue.concat(previousValue);
                                               //}    
              
-             //console.log(sampleArrayA); // ['A1','A2','A3'],['B1','B2','B3'],['C1','C2','C3']
-             //console.log(sampleArrayB); //['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A1', 'A2', 'A3']
+             console.log(sampleArrayA); // ['A1','A2','A3'],['B1','B2','B3'],['C1','C2','C3']
+             console.log(sampleArrayB); //['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A1', 'A2', 'A3']
              
              for(var counterVar=0;counterVar<sampleArrayB.length;counterVar++){
                  document.write('sampleArrayB['+counterVar+']:');
